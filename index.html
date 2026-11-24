@@ -3,69 +3,84 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Автомеханик — [Твоё Имя]</title>
+    <title> Бочарников Артем Игоревич </title>
     <style>
       :root {
-        --primary: #d9534f;       /* акцентный «автоцвет» */
-        --dark: #2c3e50;
-        --light: #f8f9fa;
-        --border: #dee2e6;
-        --gray: #6c757d;
+        --bg-dark: #121212;
+        --bg-card: #1e1e1e;
+        --text-main: #e0e0e0;
+        --text-muted: #a0a0a0;
+        --gold: #c5a011;       /* тёплый золотой */
+        --gold-hover: #e6c214;
+        --border: #333;
       }
       body {
         font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
         margin: 0;
         padding: 0;
-        color: var(--dark);
-        background: var(--light);
+        background-color: var(--bg-dark);
+        color: var(--text-main);
         line-height: 1.6;
       }
       header {
-        background: #fff;
+        background: rgba(18, 18, 18, 0.95);
+        backdrop-filter: blur(10px);
         padding: 2rem 1rem;
         text-align: center;
-        border-bottom: 3px solid var(--primary);
+        border-bottom: 2px solid var(--gold);
       }
-      h1 { margin: 0 0 0.3rem; color: var(--dark); }
-      .role { color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+      h1 { margin: 0 0 0.3rem; color: #fff; }
+      .role { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
       nav a {
+        display: inline-block;
         margin: 0 12px;
         text-decoration: none;
-        color: var(--dark);
+        color: var(--text-muted);
         font-weight: 500;
+        transition: color 0.2s;
       }
-      nav a:hover { color: var(--primary); }
+      nav a:hover, nav a:active { color: var(--gold); }
       main { max-width: 960px; margin: 2.5rem auto; padding: 0 1rem; }
       section { margin-bottom: 3rem; }
       h2 {
-        border-left: 5px solid var(--primary);
+        color: #fff;
+        position: relative;
         padding-left: 12px;
-        margin-bottom: 1.5rem;
-        color: var(--dark);
+      }
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 0; bottom: 0; width: 4px;
+        background-color: var(--gold);
       }
       .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1rem;
+        gap: 1.2rem;
       }
       .service-card {
-        background: #fff;
-        padding: 1.2rem;
+        background: var(--bg-card);
+        padding: 1.5rem;
         border: 1px solid var(--border);
         border-radius: 8px;
+        transition: transform 0.2s, border-color 0.2s;
       }
-      .service-card h3 { margin: 0 0 0.5rem; color: var(--primary); }
+      .service-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+      }
+      .service-card h3 { margin: 0 0 0.5rem; color: var(--gold); }
       .gallery-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1rem;
+        gap: 1.2rem;
       }
       .work-item img {
         width: 100%;
         height: 200px;
         object-fit: cover;
         border-radius: 6px;
-        background-color: #e9ecef; /* место под фото */
+        background-color: #000;
       }
       .tools-list {
         display: flex;
@@ -73,27 +88,28 @@
         gap: 8px;
       }
       .tool-tag {
-        background: #f1f3f5;
+        background: #2a2a2a;
         border: 1px solid var(--border);
         padding: 6px 10px;
         border-radius: 6px;
-        font-size: 0.9rem;
-        color: var(--dark);
+        font-size: 0.85rem;
+        color: var(--text-muted);
       }
+      .tool-tag::before { content: "🔧 "; }
       blockquote {
-        background: #fff;
-        padding: 1.2rem;
-        border-left: 4px solid var(--primary);
+        background: #222;
+        padding: 1.4rem;
+        border-left: 4px solid var(--gold);
         margin: 1rem 0;
         font-style: italic;
-        color: var(--gray);
+        color: var(--text-muted);
       }
       footer {
         text-align: center;
-        padding: 2rem;
-        color: var(--gray);
-        font-size: 0.9rem;
+        padding: 2.5rem 1rem;
+        color: var(--text-muted);
         border-top: 1px solid var(--border);
+        font-size: 0.9rem;
       }
       @media (max-width: 600px) {
         header { padding: 1.5rem 1rem; }
@@ -103,13 +119,13 @@
   </head>
   <body>
     <header>
-      <h1>[Твоё Имя]</h1>
+      <h1>[Бочарников Артем]</h1>
       <p class="role">Автомеханик • Диагностика и ремонт</p>
       <nav>
         <a href="#about">О себе</a>
         <a href="#services">Услуги</a>
         <a href="#works">Работы</a>
-        <a href="#tools">Инструменты и оборудование</a>
+        <a href="#tools">Инструменты</a>
         <a href="#contacts">Контакты</a>
       </nav>
     </header>
@@ -118,10 +134,10 @@
       <section id="about">
         <h2>О себе</h2>
         <p>
-          Профессиональный автомеханик с опытом [X] лет. Специализируюсь на диагностике и ремонте легковых автомобилей. Работаю с современными сканерами и стендами, соблюдаю регламенты производителей.
+          Профессиональный автомеханик с опытом 10 лет. Берусь за любой ремонт, работаю аккуратно и на совесть!
         </p>
         <p>
-          Помогу найти причину неисправности, предложу варианты ремонта и расскажу, что важно проверить в будущем.
+          В работе опираюсь на регламенты, использую качественные расходники и современное оборудование. Если есть сомнения — всегда покажу и расскажу, что и зачем делаю.
         </p>
       </section>
 
@@ -141,7 +157,7 @@
             <p>Замена амортизаторов, рычагов, сайлентблоков, шаровых опор. Проверка люфтов и углов установки колёс.</p>
           </article>
           <article class="service-card">
-            <h3>Двигатель и система охлаждения</h3>
+            <h3>Двигатель и охлаждение</h3>
             <p>Замена ремней, роликов, свечей, фильтров. Проверка герметичности, замена антифриза и масла.</p>
           </article>
           <article class="service-card">
@@ -150,7 +166,7 @@
           </article>
           <article class="service-card">
             <h3>Техническое обслуживание</h3>
-            <p>ТО по регламенту, замена расходников, проверка узлов и систем, подготовка к сезонной эксплуатации.</p>
+            <p>ТО по регламенту, замена расходников, проверка узлов и систем, подготовка к сезону.</p>
           </article>
         </div>
       </section>
@@ -162,21 +178,21 @@
           <article class="work-item">
             <img src="images/work1.jpg" alt="Диагностика двигателя: сканер, показания, узлы">
             <h3>Диагностика двигателя и замена ремня ГРМ</h3>
-            <p>Автомобиль: [Марка/модель]. Проблема: посторонние шумы, ошибки по датчикам. Решение: замена ремня, роликов и проверка фаз газораспределения.</p>
+            <p>Автомобиль: Toyota RAV4. Проблема: посторонние шумы, ошибки по датчикам. Решение: замена ремня, роликов и проверка фаз газораспределения.</p>
           </article>
 
           <!-- Работа 2 -->
           <article class="work-item">
             <img src="images/work2.jpg" alt="Замена тормозных дисков и колодок">
             <h3>Замена тормозных дисков и колодок</h3>
-            <p>Автомобиль: [Марка/модель]. Проблема: вибрация при торможении, износ дисков. Решение: комплект дисков и колодок, проточка ступицы, прокачка системы.</p>
+            <p>Автомобиль: BMW X3. Проблема: вибрация при торможении, износ дисков. Решение: комплект дисков и колодок, проточка ступицы, прокачка системы.</p>
           </article>
 
           <!-- Работа 3 -->
           <article class="work-item">
             <img src="images/work3.jpg" alt="Ремонт подвески: рычаги, амортизаторы">
             <h3>Ремонт подвески и проверка углов установки колёс</h3>
-            <p>Автомобиль: [Марка/модель]. Проблема: увод в сторону, стуки на неровностях. Решение: замена рычагов и амортизаторов, регулировка развала-схождения.</p>
+            <p>Автомобиль: Audi R8. Проблема: увод в сторону, стуки на неровностях. Решение: замена рычагов и амортизаторов, регулировка развала-схождения.</p>
           </article>
         </div>
       </section>
@@ -208,16 +224,16 @@
         <h2>Контакты</h2>
         <p>Готов проконсультировать и взять автомобиль в работу.</p>
         <ul style="list-style: none; padding: 0;">
-          <li>📞 Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></li>
-          <li>✉️ Email: <a href="mailto:mail@example.com">mail@example.com</a></li>
-          <li>📍 Адрес: [Город, улица, сервис/СТО]</li>
+          <li>📞 Телефон: <a href="tel:+7 (992) 345-87-46" style="color:var(--gold); text-decoration:underline;">+7 (999) 000-00-00</a></li>
+          <li>✉️ Email: <a href="artem.bo4arnikoff@yandex.ru" style="color:var(--gold); text-decoration:underline;">mail@example.com</a></li>
+          <li>📍 Адрес: [г. Воронеж, ул. Куколкина, д. 18)]</li>
           <li>🕒 Режим работы: [Пн–Пт 09:00–19:00, Сб 10:00–16:00]</li>
         </ul>
       </section>
     </main>
 
     <footer>
-      &copy; 2024 [Твоё Имя]. Портфолио размещено на GitHub Pages.
+      &copy; 2026 [Бочарников Артем]. Портфолио размещено на GitHub Pages.
     </footer>
   </body>
 </html>
