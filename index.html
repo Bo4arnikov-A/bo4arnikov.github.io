@@ -2,13 +2,15 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>Портфолио [Твоё Имя]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Автомеханик — [Твоё Имя]</title>
     <style>
       :root {
-        --primary: #2563eb;
-        --dark: #1f2937;
-        --light: #f3f4f6;
-        --border: #e5e7eb;
+        --primary: #d9534f;       /* акцентный «автоцвет» */
+        --dark: #2c3e50;
+        --light: #f8f9fa;
+        --border: #dee2e6;
+        --gray: #6c757d;
       }
       body {
         font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -22,10 +24,10 @@
         background: #fff;
         padding: 2rem 1rem;
         text-align: center;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 3px solid var(--primary);
       }
-      h1 { margin: 0 0 0.5rem; }
-      .role { color: var(--primary); font-weight: 600; }
+      h1 { margin: 0 0 0.3rem; color: var(--dark); }
+      .role { color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
       nav a {
         margin: 0 12px;
         text-decoration: none;
@@ -33,55 +35,81 @@
         font-weight: 500;
       }
       nav a:hover { color: var(--primary); }
-      main { max-width: 900px; margin: 3rem auto; padding: 0 1rem; }
+      main { max-width: 960px; margin: 2.5rem auto; padding: 0 1rem; }
       section { margin-bottom: 3rem; }
-      h2 { border-left: 4px solid var(--primary); padding-left: 12px; margin-bottom: 1.5rem; }
-      .skills-list {
+      h2 {
+        border-left: 5px solid var(--primary);
+        padding-left: 12px;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+      .service-card {
+        background: #fff;
+        padding: 1.2rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+      .service-card h3 { margin: 0 0 0.5rem; color: var(--primary); }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+      }
+      .work-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 6px;
+        background-color: #e9ecef; /* место под фото */
+      }
+      .tools-list {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
       }
-      .skill-tag {
-        background: #f8fafc;
+      .tool-tag {
+        background: #f1f3f5;
         border: 1px solid var(--border);
         padding: 6px 10px;
         border-radius: 6px;
         font-size: 0.9rem;
+        color: var(--dark);
       }
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.5rem;
-      }
-      .project-card {
+      blockquote {
         background: #fff;
-        padding: 1rem;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-      }
-      .project-card h3 { margin: 0 0 0.5rem; }
-      .tech-stack {
-        font-size: 0.85rem;
-        color: #6b7280;
-        margin-top: 0.5rem;
+        padding: 1.2rem;
+        border-left: 4px solid var(--primary);
+        margin: 1rem 0;
+        font-style: italic;
+        color: var(--gray);
       }
       footer {
         text-align: center;
         padding: 2rem;
-        color: #6b7280;
+        color: var(--gray);
         font-size: 0.9rem;
+        border-top: 1px solid var(--border);
+      }
+      @media (max-width: 600px) {
+        header { padding: 1.5rem 1rem; }
+        nav a { display: block; margin: 8px 0; }
       }
     </style>
   </head>
   <body>
     <header>
       <h1>[Твоё Имя]</h1>
-      <p class="role">[Твоя роль, например: Frontend-разработчик / Инженер / Разработчик БПЛА-систем]</p>
+      <p class="role">Автомеханик • Диагностика и ремонт</p>
       <nav>
         <a href="#about">О себе</a>
-        <a href="#skills">Навыки</a>
-        <a href="#projects">Проекты</a>
+        <a href="#services">Услуги</a>
+        <a href="#works">Работы</a>
+        <a href="#tools">Инструменты и оборудование</a>
         <a href="#contacts">Контакты</a>
       </nav>
     </header>
@@ -90,57 +118,101 @@
       <section id="about">
         <h2>О себе</h2>
         <p>
-          [Короткий текст: чем занимаешься, в каких задачах силён, что тебе интересно. Например: «Разрабатываю веб-интерфейсы и автоматизирую сетевые настройки. Нравится собирать простые сайты и разбираться в работе сетевых устройств и детекторов дронов.»]
+          Профессиональный автомеханик с опытом [X] лет. Специализируюсь на диагностике и ремонте легковых автомобилей. Работаю с современными сканерами и стендами, соблюдаю регламенты производителей.
+        </p>
+        <p>
+          Помогу найти причину неисправности, предложу варианты ремонта и расскажу, что важно проверить в будущем.
         </p>
       </section>
 
-      <section id="skills">
-        <h2>Навыки</h2>
-        <div class="skills-list">
-          <span class="skill-tag">HTML/CSS</span>
-          <span class="skill-tag">Git/GitHub</span>
-          <span class="skill-tag">[Добавь свои: например, Bash, Python, сетевые протоколы, работа с Dionis NX и т.п.]</span>
+      <section id="services">
+        <h2>Услуги</h2>
+        <div class="services-grid">
+          <article class="service-card">
+            <h3>Диагностика</h3>
+            <p>Компьютерная диагностика, проверка систем двигателя, подвески, электрики. Выявление ошибок и скрытых неисправностей.</p>
+          </article>
+          <article class="service-card">
+            <h3>Тормозная система</h3>
+            <p>Замена колодок, дисков, шлангов. Прокачка тормозов, проверка суппортов и стояночного тормоза.</p>
+          </article>
+          <article class="service-card">
+            <h3>Подвеска и рулевое</h3>
+            <p>Замена амортизаторов, рычагов, сайлентблоков, шаровых опор. Проверка люфтов и углов установки колёс.</p>
+          </article>
+          <article class="service-card">
+            <h3>Двигатель и система охлаждения</h3>
+            <p>Замена ремней, роликов, свечей, фильтров. Проверка герметичности, замена антифриза и масла.</p>
+          </article>
+          <article class="service-card">
+            <h3>Электрооборудование</h3>
+            <p>Проверка АКБ, генератора, стартера. Диагностика проводки, фар, датчиков и блоков управления.</p>
+          </article>
+          <article class="service-card">
+            <h3>Техническое обслуживание</h3>
+            <p>ТО по регламенту, замена расходников, проверка узлов и систем, подготовка к сезонной эксплуатации.</p>
+          </article>
         </div>
       </section>
 
-      <section id="projects">
-        <h2>Проекты</h2>
-        <div class="projects-grid">
-          <!-- Проект 1 -->
-          <article class="project-card">
-            <h3>Сайт-визитка на HTML</h3>
-            <p>Простой сайт с адаптивной вёрсткой и базовой навигацией.</p>
-            <div class="tech-stack">HTML, CSS</div>
-            <a href="[ссылка на репозиторий или демо]" target="_blank" style="color:var(--primary)">Посмотреть код</a>
+      <section id="works">
+        <h2>Примеры работ</h2>
+        <div class="gallery-grid">
+          <!-- Работа 1 -->
+          <article class="work-item">
+            <img src="images/work1.jpg" alt="Диагностика двигателя: сканер, показания, узлы">
+            <h3>Диагностика двигателя и замена ремня ГРМ</h3>
+            <p>Автомобиль: [Марка/модель]. Проблема: посторонние шумы, ошибки по датчикам. Решение: замена ремня, роликов и проверка фаз газораспределения.</p>
           </article>
 
-          <!-- Проект 2 -->
-          <article class="project-card">
-            <h3>Настройка ACL на Dionis NX</h3>
-            <p>Пример правил фильтрации трафика, UDP-порты, доступ по подсети, stateful-фильтрация.</p>
-            <div class="tech-stack">Сетевые правила, ACL, Dionis NX</div>
-            <a href="[ссылка]" target="_blank" style="color:var(--primary)">Код/описание</a>
+          <!-- Работа 2 -->
+          <article class="work-item">
+            <img src="images/work2.jpg" alt="Замена тормозных дисков и колодок">
+            <h3>Замена тормозных дисков и колодок</h3>
+            <p>Автомобиль: [Марка/модель]. Проблема: вибрация при торможении, износ дисков. Решение: комплект дисков и колодок, проточка ступицы, прокачка системы.</p>
           </article>
 
-          <!-- Проект 3 -->
-          <article class="project-card">
-            <h3>[Ещё один проект, например, скрипт/парсер/пет-проект]</h3>
-            <p>[Описание в 1–2 предложениях]</p>
-            <div class="tech-stack">[Технологии]</div>
-            <a href="[ссылка]" target="_blank" style="color:var(--primary)">Посмотреть</a>
+          <!-- Работа 3 -->
+          <article class="work-item">
+            <img src="images/work3.jpg" alt="Ремонт подвески: рычаги, амортизаторы">
+            <h3>Ремонт подвески и проверка углов установки колёс</h3>
+            <p>Автомобиль: [Марка/модель]. Проблема: увод в сторону, стуки на неровностях. Решение: замена рычагов и амортизаторов, регулировка развала-схождения.</p>
           </article>
         </div>
+      </section>
+
+      <section id="tools">
+        <h2>Инструменты и оборудование</h2>
+        <p>Для качественной работы использую современное оборудование и проверенные инструменты:</p>
+        <div class="tools-list">
+          <span class="tool-tag">Сканер OBD2 / дилерский сканер</span>
+          <span class="tool-tag">Стенд развал-схождение</span>
+          <span class="tool-tag">Пневмоинструмент и гайковёрты</span>
+          <span class="tool-tag">Набор профессионального ручного инструмента</span>
+          <span class="tool-tag">Тестер АКБ и пускозарядное устройство</span>
+          <span class="tool-tag">Видеоэндоскоп для осмотра цилиндров</span>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <h2>Отзывы</h2>
+        <blockquote>
+          «Всё подробно объяснили, показали причину неисправности и варианты решения. Ремонт сделали в срок, дали рекомендации по обслуживанию.» — [Имя клиента]
+        </blockquote>
+        <blockquote>
+          «Обратился с проблемой по подвеске — нашли сразу, лишних работ не навязывали. Приятно работать с профессионалом.» — [Имя клиента]
+        </blockquote>
       </section>
 
       <section id="contacts">
         <h2>Контакты</h2>
-        <p>
-          Готов к задачам и обсуждениям.
-          <br>
-          Email: <a href="mailto:example@example.com">example@example.com</a><br>
-          GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a><br>
-          Telegram: <a href="https://t.me/username" target="_blank">@username</a>
-        </p>
+        <p>Готов проконсультировать и взять автомобиль в работу.</p>
+        <ul style="list-style: none; padding: 0;">
+          <li>📞 Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></li>
+          <li>✉️ Email: <a href="mailto:mail@example.com">mail@example.com</a></li>
+          <li>📍 Адрес: [Город, улица, сервис/СТО]</li>
+          <li>🕒 Режим работы: [Пн–Пт 09:00–19:00, Сб 10:00–16:00]</li>
+        </ul>
       </section>
     </main>
 
