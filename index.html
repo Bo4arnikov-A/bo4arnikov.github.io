@@ -2,56 +2,150 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>Мой сайт на GitHub Pages</title>
+    <title>Портфолио [Твоё Имя]</title>
     <style>
-      body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
-      h1, h2 { color: #222; }
-      .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 6px; }
-      a { color: #007bff; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      footer { margin-top: 40px; font-size: 0.9em; color: #777; }
+      :root {
+        --primary: #2563eb;
+        --dark: #1f2937;
+        --light: #f3f4f6;
+        --border: #e5e7eb;
+      }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--dark);
+        background: var(--light);
+        line-height: 1.6;
+      }
+      header {
+        background: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+      h1 { margin: 0 0 0.5rem; }
+      .role { color: var(--primary); font-weight: 600; }
+      nav a {
+        margin: 0 12px;
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+      }
+      nav a:hover { color: var(--primary); }
+      main { max-width: 900px; margin: 3rem auto; padding: 0 1rem; }
+      section { margin-bottom: 3rem; }
+      h2 { border-left: 4px solid var(--primary); padding-left: 12px; margin-bottom: 1.5rem; }
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .skill-tag {
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      .project-card {
+        background: #fff;
+        padding: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      }
+      .project-card h3 { margin: 0 0 0.5rem; }
+      .tech-stack {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-top: 0.5rem;
+      }
+      footer {
+        text-align: center;
+        padding: 2rem;
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
     </style>
   </head>
   <body>
     <header>
-      <h1>Привет! Это мой сайт</h1>
-      <p>Здесь я рассказываю о себе / своём проекте / своих работах.</p>
+      <h1>[Твоё Имя]</h1>
+      <p class="role">[Твоя роль, например: Frontend-разработчик / Инженер / Разработчик БПЛА-систем]</p>
+      <nav>
+        <a href="#about">О себе</a>
+        <a href="#skills">Навыки</a>
+        <a href="#projects">Проекты</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
     </header>
 
-    <section>
-      <h2>Что я делаю</h2>
-      <div class="card">
-        <h3>Проект 1</h3>
-        <p>Краткое описание: что это, зачем нужно, какой результат даёт.</p>
-      </div>
-      <div class="card">
-        <h3>Проект 2</h3>
-        <p>Ещё один проект или направление. Расскажи про него в 2–3 предложениях.</p>
-      </div>
-    </section>
+    <main>
+      <section id="about">
+        <h2>О себе</h2>
+        <p>
+          [Короткий текст: чем занимаешься, в каких задачах силён, что тебе интересно. Например: «Разрабатываю веб-интерфейсы и автоматизирую сетевые настройки. Нравится собирать простые сайты и разбираться в работе сетевых устройств и детекторов дронов.»]
+        </p>
+      </section>
 
-    <section>
-      <h2>Почему это важно</h2>
-      <ul>
-        <li>Преимущество 1: коротко и по делу.</li>
-        <li>Преимущество 2: конкретика, цифры или эффект.</li>
-        <li>Преимущество 3: ещё один сильный аргумент.</li>
-      </ul>
-    </section>
+      <section id="skills">
+        <h2>Навыки</h2>
+        <div class="skills-list">
+          <span class="skill-tag">HTML/CSS</span>
+          <span class="skill-tag">Git/GitHub</span>
+          <span class="skill-tag">[Добавь свои: например, Bash, Python, сетевые протоколы, работа с Dionis NX и т.п.]</span>
+        </div>
+      </section>
 
-    <section>
-      <h2>Контакты</h2>
-      <p>
-        Хочешь обсудить проект? Напиши мне:
-        <br>
-        Email: <a href="mailto:example@example.com">example@example.com</a>
-        <br>
-        Telegram: <a href="https://t.me/username">username</a>
-      </p>
-    </section>
+      <section id="projects">
+        <h2>Проекты</h2>
+        <div class="projects-grid">
+          <!-- Проект 1 -->
+          <article class="project-card">
+            <h3>Сайт-визитка на HTML</h3>
+            <p>Простой сайт с адаптивной вёрсткой и базовой навигацией.</p>
+            <div class="tech-stack">HTML, CSS</div>
+            <a href="[ссылка на репозиторий или демо]" target="_blank" style="color:var(--primary)">Посмотреть код</a>
+          </article>
+
+          <!-- Проект 2 -->
+          <article class="project-card">
+            <h3>Настройка ACL на Dionis NX</h3>
+            <p>Пример правил фильтрации трафика, UDP-порты, доступ по подсети, stateful-фильтрация.</p>
+            <div class="tech-stack">Сетевые правила, ACL, Dionis NX</div>
+            <a href="[ссылка]" target="_blank" style="color:var(--primary)">Код/описание</a>
+          </article>
+
+          <!-- Проект 3 -->
+          <article class="project-card">
+            <h3>[Ещё один проект, например, скрипт/парсер/пет-проект]</h3>
+            <p>[Описание в 1–2 предложениях]</p>
+            <div class="tech-stack">[Технологии]</div>
+            <a href="[ссылка]" target="_blank" style="color:var(--primary)">Посмотреть</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="contacts">
+        <h2>Контакты</h2>
+        <p>
+          Готов к задачам и обсуждениям.
+          <br>
+          Email: <a href="mailto:example@example.com">example@example.com</a><br>
+          GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a><br>
+          Telegram: <a href="https://t.me/username" target="_blank">@username</a>
+        </p>
+      </section>
+    </main>
 
     <footer>
-      &copy; 2024 Моё имя. Сайт размещён на GitHub Pages.
+      &copy; 2024 [Твоё Имя]. Портфолио размещено на GitHub Pages.
     </footer>
   </body>
 </html>
